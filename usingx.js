@@ -206,6 +206,10 @@ app.get('/start-automation', async (req, res) => {
         res.status(500).send('Error starting automation');
     }
 });
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 app.get('/', async (req, res) => {
   res.send('running the server')
