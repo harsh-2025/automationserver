@@ -196,9 +196,17 @@ async function example() {
 };
 
 app.get('/start-automation', async (req, res) => {
-  await example();
-  res.send('Automation started!');
+  // await example();
+  // res.send('Automation started!');
+  try {
+        await example();
+        res.send('Automation started!');
+    } catch (error) {
+        console.error('Error starting automation:', error);
+        res.status(500).send('Error starting automation');
+    }
 });
+
 app.get('/', async (req, res) => {
   res.send('running the server')
 })
