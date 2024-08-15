@@ -199,7 +199,9 @@ app.get('/start-automation', async (req, res) => {
   await example();
   res.send('Automation started!');
 });
-
+app.get('/', async (req, res) => {
+  res.send('running the server')
+})
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
